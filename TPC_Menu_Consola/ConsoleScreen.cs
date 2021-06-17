@@ -69,6 +69,8 @@ namespace TPC_Menu_Consola
 
             Console.CursorVisible = false;
 
+            Console.ForegroundColor = ConsoleColor.Gray;
+
             //Cidade
             printPosition(65, 4, weather.name);
 
@@ -112,7 +114,7 @@ namespace TPC_Menu_Consola
             printPosition(96, 24, horaPor.ToShortTimeString());
 
             //Desenhar icone em ASCII
-            drawWeatherIcon("02n");
+            drawWeatherIconV2(weather.weather[0].icon);
         }
 
         public void drawWeatherIcon(string icon)
@@ -211,9 +213,108 @@ namespace TPC_Menu_Consola
             }
         }
 
+        public void drawWeatherIconV2(string icon)
+        {
+            switch (icon)
+            {
+                case "01n":
+                case "01d":
+                    //Ceu limpo
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                    printPosition(14, 5, "    \\   /");
+                    printPosition(14, 6, "     .-.");
+                    printPosition(14, 7, " -- (   ) --");
+                    printPosition(14, 8, "     `-´ ");
+                    printPosition(14, 9, "    /    \\");
+
+                    break;
+                case "02n":
+                case "02d":
+                    //Poucas nuvens
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                    printPosition(14, 6, " _`/**");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    printPosition(20, 6, ".-.");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    printPosition(14, 7, "  ,\\_");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    printPosition(19, 7, "(   ).");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    printPosition(14, 8, "   /");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    printPosition(18, 8, "(___(__)");
+                    break;
+
+                case "03n":
+                case "03d":
+                case "04n":
+                case "04d":
+                    //Nublado
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                    printPosition(14, 7, "    .-.");
+                    printPosition(14, 8, "   (   ).");
+                    printPosition(14, 9, "  (___(__)");
+
+                    break;
+                case "09n":
+                case "09d":
+                case "10n":
+                case "10d":
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                    printPosition(14, 6, "    .-.");
+                    printPosition(14, 7, "   (   ).");
+                    printPosition(14, 8, "  (___(__)");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    printPosition(14, 9, "   ´ ´ ´ ´");
+                    printPosition(14, 10, "  ´ ´ ´ ´");
+
+                    break;
+                case "11n":
+                case "11d":
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                    printPosition(10, 3, "  (_                       __))");
+                    printPosition(10, 4, "    ((                _____)");
+                    printPosition(10, 5, "      (_________)----'");
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    printPosition(10, 6, "         _/  /");
+                    printPosition(10, 7, "        /  _/");
+                    printPosition(10, 8, "      _/  /");
+                    printPosition(10, 9, "     / __/");
+                    printPosition(10, 10, "   _/ /");
+                    printPosition(10, 11, "  /__/");
+                    printPosition(10, 12, " //");
+                    printPosition(10, 13, "/'");
+                    break;
+                case "13n":
+                case "13d":
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                    printPosition(14, 6, "    .-.");
+                    printPosition(14, 7, "   (   ).");
+                    printPosition(14, 8, "  (___(__)");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    printPosition(14, 9, "   * * * *");
+                    printPosition(14, 10, "  * * * *");
+                    break;
+                case "50n":
+                case "50d":
+                    Console.WriteLine("Neblina");
+                    Console.WriteLine("");
+                    break;
+                default:
+                    Console.WriteLine("");
+                    break;
+            }
+        }
+
         public void printMenu()
         {
-            clearScreen(ConsoleColor.DarkBlue);
+            clearScreen(ConsoleColor.Gray);
             setColor(ConsoleColor.White, ConsoleColor.DarkBlue);
             Console.SetCursorPosition(0, 0);
             Console.WriteLine("  ╔══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗");
@@ -255,11 +356,19 @@ namespace TPC_Menu_Consola
                 for(int y = ystart; y< ystart + height; y++)
                 {
                     Console.SetCursorPosition(x, y);
-                    Console.ForegroundColor = color;
-                    Console.Write("█");
+                    Console.BackgroundColor = color;
+                    Console.Write(" ");
                 }
             }
 
+        }
+
+        public void drawTeste()
+        {
+            drawRect(0, 0, 120, 30, ConsoleColor.DarkGreen);
+            drawRect(10, 10, 100, 10, ConsoleColor.Blue);
+
+            Console.ReadKey();
         }
     }
 }
