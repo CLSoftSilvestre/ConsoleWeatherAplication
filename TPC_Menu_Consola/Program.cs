@@ -19,6 +19,7 @@ namespace TPC_Menu_Consola
             {
                 cs.printMenu();
                 Console.SetCursorPosition(63, 15);
+                Console.CursorVisible = true;
                 try
                 {
                     opcao = int.Parse(Console.ReadLine());

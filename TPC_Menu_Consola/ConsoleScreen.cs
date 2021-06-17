@@ -58,7 +58,7 @@ namespace TPC_Menu_Consola
             Console.WriteLine("  ║ │  Pressão  │                  │hPa │ │ Dir.Vento │                  │deg.│ │Por do sol │                       │║");
             Console.WriteLine("  ║ └───────────┴──────────────────┴────┘ └───────────┴──────────────────┴────┘ └───────────┴───────────────────────┘║");
             Console.WriteLine("  ║                                                                        ┌───────────────────────────────────┐     ║");
-            Console.WriteLine("  ╚════════════════════════════════════════════════════════════════════════╡    (C) 2021 - Celso Silvestre     ╞═════╝");
+            Console.WriteLine("  ╚════════════════════════════════════════════════════════════════════════╡ Prima uma tecla para continuar... ╞═════╝");
             Console.WriteLine("                                                                           └───────────────────────────────────┘      ");
 
         }
@@ -66,6 +66,8 @@ namespace TPC_Menu_Consola
         public void drawWeatherInfo( Weather weather)
         {
             printBox();
+
+            Console.CursorVisible = false;
 
             //Cidade
             printPosition(65, 4, weather.name);
