@@ -91,7 +91,7 @@ namespace TPC_Menu_Consola
 
         public static double ConversionCtoF(double celsius)
         {
-            return celsius +1.8 + 32;
+            return celsius * 1.8 + 32;
         }
     }
 
