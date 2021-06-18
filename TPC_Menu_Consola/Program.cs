@@ -20,7 +20,7 @@ namespace TPC_Menu_Consola
             while(opcao != 0)
             {
                 cs.printMenu();
-                Console.SetCursorPosition(63, 15);
+                Console.SetCursorPosition(63, 16);
                 Console.CursorVisible = true;
                 try
                 {
@@ -42,6 +42,11 @@ namespace TPC_Menu_Consola
                             // Porto
                             string urlOpo = "http://api.openweathermap.org/data/2.5/weather?id=2735943&appid=439f2c0ec9007cfd5e0a299dc5e243b0&units=metric&lang=pt";
                             ShowCityWeather(urlOpo, cs);
+                            break;
+                        case 4:
+                            // Faro
+                            string urlAlg = "http://api.openweathermap.org/data/2.5/weather?id=2268339&appid=439f2c0ec9007cfd5e0a299dc5e243b0&units=metric&lang=pt";
+                            ShowCityWeather(urlAlg, cs);
                             break;
                         case 0:
                             break;

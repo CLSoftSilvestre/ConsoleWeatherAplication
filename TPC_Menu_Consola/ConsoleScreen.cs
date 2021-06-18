@@ -114,107 +114,11 @@ namespace TPC_Menu_Consola
             printPosition(96, 24, horaPor.ToShortTimeString());
 
             //Desenhar icone em ASCII
-            drawWeatherIconV2(weather.weather[0].icon);
+            drawWeatherIcon(weather.weather[0].icon);
             //drawWeatherIconV2("11d");
         }
 
         public void drawWeatherIcon(string icon)
-        {
-            switch (icon)
-            {
-                case "01n":
-                case "01d":
-                    //Ceu limpo
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    printPosition(10, 4, "      ;   :   ;");
-                    printPosition(10, 5, "   .   \\_,!,_/   ,");
-                    printPosition(10, 6, "    `.,'     `.,'");
-                    printPosition(10, 7, "     /         \\" );
-                    printPosition(10, 8, "~ -- :         : -- ~");
-                    printPosition(10, 9, "     \\         /");
-                    printPosition(10, 10, "    ,'`._   _.'`.");
-                    printPosition(10, 11, "   '   / `!` \\   `");
-                    printPosition(10, 12, "      ;   :   ;");
-                    break;
-                case "02n":
-                case "02d":
-                    //Poucas nuvens
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    printPosition(8, 4, "      ;   :   ;");
-                    printPosition(8, 5, "   .   \\_,!,_/   ,");
-                    printPosition(8, 6, "     /         \\");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    printPosition(8, 7, "    `.,'  .-~~~-.");
-                    printPosition(8, 8, "  .- ~ ~-(       )_ _");
-                    printPosition(8, 9, " /                     ~ -.");
-                    printPosition(8, 10, "|                           \\");
-                    printPosition(8, 11, " \\                         .'");
-                    printPosition(8, 12, "   ~- . _____________ . -~");
-                    break;
-              
-                case "03n":
-                case "03d":
-                case "04n":
-                case "04d":
-                    //Nublado
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    printPosition(8, 5, "          .-~~~-.");
-                    printPosition(8, 6, "  .- ~ ~-(       )_ _");
-                    printPosition(8, 7, " /                     ~ -.");
-                    printPosition(8, 8, "|                           \\");
-                    printPosition(8, 9, " \\                         .'");
-                    printPosition(8, 10, "   ~- . _____________ . -~");
-                    break;
-                case "09n":
-                case "09d":
-                case "10n":
-                case "10d":
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    printPosition(10, 5, "      __   _");
-                    printPosition(10, 6, "    _(  )_( )_ ");
-                    printPosition(10, 7, "   (_   _    _)");
-                    printPosition(10, 8, "  / /(_) (__)");
-                    printPosition(10, 9, " / / / / / /");
-                    printPosition(10, 10, "/ / / / / /");
-                    break;
-                case "11n":
-                case "11d":
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    printPosition(10, 3, "  (_                       __))");
-                    printPosition(10, 4, "    ((                _____)");
-                    printPosition(10, 5, "      (_________)----'");
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    printPosition(10, 6, "         _/  /");
-                    printPosition(10, 7, "        /  _/");
-                    printPosition(10, 8, "      _/  /");
-                    printPosition(10, 9, "     / __/");
-                    printPosition(10, 10, "   _/ /");
-                    printPosition(10, 11, "  /__/");
-                    printPosition(10, 12, " //");
-                    printPosition(10, 13, "/'");
-                    break;
-                case "13n":
-                case "13d":
-                    Console.WriteLine("Neve");
-                    Console.WriteLine("⛄");
-                    break;
-                case "50n":
-                case "50d":
-                    Console.WriteLine("Neblina");
-                    Console.WriteLine("");
-                    break;
-                default:
-                    Console.WriteLine("");
-                    break;
-            }
-        }
-
-        public void drawWeatherIconV2(string icon)
         {
             switch (icon)
             {
@@ -360,10 +264,10 @@ namespace TPC_Menu_Consola
             Console.WriteLine("  ║                                   ║  1 - Estado do tempo em Ponta Delgada  ║                                     ║");
             Console.WriteLine("  ║                                   ║  2 - Estado do tempo em Lisboa         ║                                     ║");
             Console.WriteLine("  ║                                   ║  3 - Estado do tempo no Porto          ║                                     ║");
+            Console.WriteLine("  ║                                   ║  4 - Estado do tempo no Faro           ║                                     ║");
             Console.WriteLine("  ║                                   ║  0 - Sair da aplicação                 ║                                     ║");
             Console.WriteLine("  ║                                   ║                                        ║                                     ║");
             Console.WriteLine("  ║                                   ║   Insira a sua opção:                  ║                                     ║");
-            Console.WriteLine("  ║                                   ║                                        ║                                     ║");
             Console.WriteLine("  ║                                   ║                                        ║                                     ║");
             Console.WriteLine("  ║                                   ╚════════════════════════════════════════╝                                     ║");
             Console.WriteLine("  ║                                                                                                                  ║");
