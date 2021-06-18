@@ -132,7 +132,6 @@ namespace TPC_Menu_Consola
                     printPosition(14, 7, " -- (   ) --");
                     printPosition(14, 8, "     `-´ ");
                     printPosition(14, 9, "    /    \\");
-
                     break;
                 case "02n":
                 case "02d":
@@ -152,7 +151,6 @@ namespace TPC_Menu_Consola
                     Console.ForegroundColor = ConsoleColor.White;
                     printPosition(18, 8, "(___(__)");
                     break;
-
                 case "03n":
                 case "03d":
                     //Nublado
@@ -161,7 +159,6 @@ namespace TPC_Menu_Consola
                     printPosition(14, 7, "    .-.");
                     printPosition(14, 8, "   (   ).");
                     printPosition(14, 9, "  (___(__)");
-
                     break;
                 case "04n":
                 case "04d":
@@ -171,7 +168,6 @@ namespace TPC_Menu_Consola
                     printPosition(14, 7, "    .-.");
                     printPosition(14, 8, "   (   ).");
                     printPosition(14, 9, "  (___(__)");
-
                     break;
                 case "09n":
                 case "09d":
@@ -203,7 +199,6 @@ namespace TPC_Menu_Consola
                     Console.ForegroundColor = ConsoleColor.Blue;
                     printPosition(18, 9, " ´ ´ ´ ´");
                     printPosition(18, 10, "´ ´ ´ ´");
-
                     break;
                 case "11n":
                 case "11d":
@@ -215,7 +210,6 @@ namespace TPC_Menu_Consola
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     printPosition(14, 9, "     \\ \\");
                     printPosition(14, 10, "      /");
-                    break;
                     break;
                 case "13n":
                 case "13d":
