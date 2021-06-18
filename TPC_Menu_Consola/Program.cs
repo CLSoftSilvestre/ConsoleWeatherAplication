@@ -13,9 +13,7 @@ namespace TPC_Menu_Consola
         {
             ConsoleScreen cs = new ConsoleScreen();
 
-            //cs.drawTeste();
-
-            int opcao = -1; //Alterar para -1
+            int opcao = -1;
 
             while(opcao != 0)
             {
