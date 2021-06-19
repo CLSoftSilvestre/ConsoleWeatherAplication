@@ -9,6 +9,8 @@ namespace TPC_Menu_Consola
     // Esta classe contem todas as funções necessárias para desenhar componentes no ecra.
     class ConsoleScreen
     {
+        Drawings drw = new Drawings();
+
         public void clearScreen(ConsoleColor bgColor)
         {
             Console.BackgroundColor = bgColor;
@@ -114,125 +116,49 @@ namespace TPC_Menu_Consola
             printPosition(96, 24, horaPor.ToShortTimeString());
 
             //Desenhar icone em ASCII
-            drawWeatherIcon(weather.weather[0].icon);
-            //drawWeatherIconV2("11d");
+            drawWeatherIcon(weather.weather[0].icon, 14, 6);
+            //drawWeatherIcon("11d");
         }
 
-        public void drawWeatherIcon(string icon)
+        public void drawWeatherIcon(string icon, int x, int y)
         {
             switch (icon)
             {
                 case "01n":
                 case "01d":
-                    //Ceu limpo
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    //Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    printPosition(14, 5, "    \\   /");
-                    printPosition(14, 6, "     .-.");
-                    printPosition(14, 7, " -- (   ) --");
-                    printPosition(14, 8, "     `-´ ");
-                    printPosition(14, 9, "    /    \\");
+                    drw.drawSun(x, y);
                     break;
                 case "02n":
                 case "02d":
-                    //Poucas nuvens
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    //Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    printPosition(14, 5, "   \\  /");
-                    printPosition(14, 6, " _`/**");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    printPosition(20, 6, ".-.");
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    printPosition(14, 7, "  ,\\_");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    printPosition(19, 7, "(   ).");
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    printPosition(14, 8, "   /");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    printPosition(18, 8, "(___(__)");
+                    drw.drawSunClouds(x, y);
                     break;
                 case "03n":
                 case "03d":
-                    //Nublado
-                    Console.ForegroundColor = ConsoleColor.White;
-                    //Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    printPosition(14, 7, "    .-.");
-                    printPosition(14, 8, "   (   ).");
-                    printPosition(14, 9, "  (___(__)");
+                    drw.drawClouds(x, y);
                     break;
                 case "04n":
                 case "04d":
-                    //Nublado escuro
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    //Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    printPosition(14, 7, "    .-.");
-                    printPosition(14, 8, "   (   ).");
-                    printPosition(14, 9, "  (___(__)");
+                    drw.drawDarkClouds(x, y);
                     break;
                 case "09n":
                 case "09d":
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    //Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    printPosition(14, 6, "    .-.");
-                    printPosition(14, 7, "   (   ).");
-                    printPosition(14, 8, "  (___(__)");
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    printPosition(14, 9, "   ´ ´ ´ ´");
-                    printPosition(14, 10, "  ´ ´ ´ ´");
+                    drw.drawCloudsRain(x, y);
                     break;
                 case "10n":
                 case "10d":
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    //Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    printPosition(14, 5, "   \\  /");
-                    printPosition(14, 6, " _`/**");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    printPosition(20, 6, ".-.");
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    printPosition(14, 7, "  ,\\_");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    printPosition(19, 7, "(   ).");
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    printPosition(14, 8, "   /");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    printPosition(18, 8, "(___(__)");
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    printPosition(18, 9, " ´ ´ ´ ´");
-                    printPosition(18, 10, "´ ´ ´ ´");
+                    drw.drawSunCloudsRain(x, y);
                     break;
                 case "11n":
                 case "11d":
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    //Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    printPosition(14, 6, "    .-.");
-                    printPosition(14, 7, "   (   ).");
-                    printPosition(14, 8, "  (___(__)");
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    printPosition(14, 9, "     \\ \\");
-                    printPosition(14, 10, "      /");
+                    drw.drawLightning(x, y);
                     break;
                 case "13n":
                 case "13d":
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    //Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    printPosition(14, 6, "    .-.");
-                    printPosition(14, 7, "   (   ).");
-                    printPosition(14, 8, "  (___(__)");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    printPosition(14, 9, "   * * * *");
-                    printPosition(14, 10, "  * * * *");
+                    drw.drawSnow(x, y);
                     break;
                 case "50n":
                 case "50d":
-                    //Console.WriteLine("Neblina");
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    //Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    printPosition(14, 6, "    .-.");
-                    printPosition(14, 7, "   (   ).");
-                    printPosition(14, 8, "  (___(__)");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    printPosition(14, 9, "   ~~~~~~~~");
-                    printPosition(14, 10, "   ~~~~~~~~");
+                    drw.drawFog(x, y);
                     break;
                 default:
                     Console.WriteLine("");
@@ -249,16 +175,17 @@ namespace TPC_Menu_Consola
             Console.WriteLine("  ║  ESTADO DO TEMPO NA CONSOLA                                                                                      ║");
             Console.WriteLine("  ╠══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣");
             Console.WriteLine("  ║                                                                                                                  ║");
-            Console.WriteLine("  ║                                                                                                                  ║");
-            Console.WriteLine("  ║                                                                                                                  ║");
-            Console.WriteLine("  ║                                                                                                                  ║");
             Console.WriteLine("  ║                                   ╔════════════════════════════════════════╗                                     ║");
             Console.WriteLine("  ║                                   ║             MENU PRINCIPAL             ║                                     ║");
             Console.WriteLine("  ║                                   ╠════════════════════════════════════════╣                                     ║");
             Console.WriteLine("  ║                                   ║  1 - Estado do tempo em Ponta Delgada  ║                                     ║");
-            Console.WriteLine("  ║                                   ║  2 - Estado do tempo em Lisboa         ║                                     ║");
-            Console.WriteLine("  ║                                   ║  3 - Estado do tempo no Porto          ║                                     ║");
-            Console.WriteLine("  ║                                   ║  4 - Estado do tempo no Faro           ║                                     ║");
+            Console.WriteLine("  ║                                   ║  2 - Previsão do tempo em Ponta Delgada║                                     ║");
+            Console.WriteLine("  ║                                   ║  3 - Estado do tempo no Lisboa         ║                                     ║");
+            Console.WriteLine("  ║                                   ║  4 - Previsão do tempo em Lisboa       ║                                     ║");
+            Console.WriteLine("  ║                                   ║  5 - Estado do tempo no Porto          ║                                     ║");
+            Console.WriteLine("  ║                                   ║  6 - Previsão do tempo no Porto        ║                                     ║");
+            Console.WriteLine("  ║                                   ║  7 - Estado do tempo em Faro           ║                                     ║");
+            Console.WriteLine("  ║                                   ║  8 - Previsão do tempo em Faro         ║                                     ║");
             Console.WriteLine("  ║                                   ║  0 - Sair da aplicação                 ║                                     ║");
             Console.WriteLine("  ║                                   ║                                        ║                                     ║");
             Console.WriteLine("  ║                                   ║   Insira a sua opção:                  ║                                     ║");
@@ -270,11 +197,10 @@ namespace TPC_Menu_Consola
             Console.WriteLine("  ║                                                                                                                  ║");
             Console.WriteLine("  ║                                                                                                                  ║");
             Console.WriteLine("  ║                                                                                                                  ║");
-            Console.WriteLine("  ║                                                                                                                  ║");
             Console.WriteLine("  ║                                                                        ┌───────────────────────────────────┐     ║");
             Console.WriteLine("  ╚════════════════════════════════════════════════════════════════════════╡    (C) 2021 - Celso Silvestre     ╞═════╝");
             Console.WriteLine("                                                                           └───────────────────────────────────┘      ");
-
+            //203
         }
 
         public void drawRect(int xstart, int ystart, int width, int height, ConsoleColor color)
@@ -297,6 +223,81 @@ namespace TPC_Menu_Consola
             drawRect(10, 10, 100, 10, ConsoleColor.Blue);
 
             Console.ReadKey();
+        }
+
+        public void printBoxForecast()
+        {
+            clearScreen(ConsoleColor.Black);
+            setColor(ConsoleColor.White, ConsoleColor.Black);
+            Console.WriteLine("  ╔══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗");
+            Console.WriteLine("  ║  ESTADO DO TEMPO NA CONSOLA - PREVISÃO  -                                                                        ║");
+            Console.WriteLine("  ╠══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣");
+            Console.WriteLine("  ║                                                                                                                  ║");
+            Console.WriteLine("  ║ ┌───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────┐║");
+            Console.WriteLine("  ║ │               │               │               │               │               │               │               │║");
+            Console.WriteLine("  ║ │               │               │               │               │               │               │               │║");
+            Console.WriteLine("  ║ │               │               │               │               │               │               │               │║");
+            Console.WriteLine("  ║ │               │               │               │               │               │               │               │║");
+            Console.WriteLine("  ║ │               │               │               │               │               │               │               │║");
+            Console.WriteLine("  ║ │               │               │               │               │               │               │               │║");
+            Console.WriteLine("  ║ │               │               │               │               │               │               │               │║");
+            Console.WriteLine("  ║ │               │               │               │               │               │               │               │║");
+            Console.WriteLine("  ║ └───────────────┴───────────────┴───────────────┴───────────────┴───────────────┴───────────────┴───────────────┘║");
+            Console.WriteLine("  ║                                                                                                                  ║");
+            Console.WriteLine("  ║ ┌───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────┐║");
+            Console.WriteLine("  ║ │               │               │               │               │               │               │               │║");
+            Console.WriteLine("  ║ │               │               │               │               │               │               │               │║");
+            Console.WriteLine("  ║ │               │               │               │               │               │               │               │║");
+            Console.WriteLine("  ║ │               │               │               │               │               │               │               │║");
+            Console.WriteLine("  ║ │               │               │               │               │               │               │               │║");
+            Console.WriteLine("  ║ │               │               │               │               │               │               │               │║");
+            Console.WriteLine("  ║ │               │               │               │               │               │               │               │║");
+            Console.WriteLine("  ║ │               │               │               │               │               │               │               │║");
+            Console.WriteLine("  ║ └───────────────┴───────────────┴───────────────┴───────────────┴───────────────┴───────────────┴───────────────┘║");
+            Console.WriteLine("  ║                                                                                                                  ║");
+            Console.WriteLine("  ║                                                                        ┌───────────────────────────────────┐     ║");
+            Console.WriteLine("  ╚════════════════════════════════════════════════════════════════════════╡ Prima uma tecla para continuar... ╞═════╝");
+            Console.WriteLine("                                                                           └───────────────────────────────────┘      ");
+
+        }
+
+        public void drawWeatherForecast( WeatherPrediction weather)
+        {
+            printBoxForecast();
+
+            Console.CursorVisible = false;
+
+            Console.ForegroundColor = ConsoleColor.White;
+            printPosition(47, 1, weather.city.name);
+
+
+            for (int i = 0; i < 7; i++)
+            {
+                drawWeatherIcon(weather.list[i].weather[0].icon, 16 * (i) + 5, 6);
+                //printPosition(16 * i + 2, 8, weather.list[i].dt_txt);
+                Console.ForegroundColor = ConsoleColor.Blue;
+                printPosition(16 * i + 6, 5, weather.list[i].main.temp.ToString() + "ºC");
+                printPosition(16 * i + 16, 5, weather.list[i].main.humidity.ToString() + "%");
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                //var data = (new DateTime(1970, 1, 1)).AddSeconds(weather.list[i].dt);
+                //printPosition(16 * i + 7, 11, data.ToShortDateString());
+                printPosition(16 * i + 5, 12, weather.list[i].dt_txt.Substring(0,weather.list[i].dt_txt.Length - 6)+"h");
+
+            }
+
+            for (int i = 0; i < 7; i++)
+            {
+                drawWeatherIcon(weather.list[i+7].weather[0].icon, 16 * (i) + 5, 6+11);
+                Console.ForegroundColor = ConsoleColor.Blue;
+                printPosition(16 * i + 6, 5 + 11, weather.list[i+7].main.temp.ToString() + "ºC");
+                printPosition(16 * i + 16, 5 + 11, weather.list[i+7].main.humidity.ToString() + "%");
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                printPosition(16 * i + 5, 12+11, weather.list[i+7].dt_txt.Substring(0, weather.list[i+7].dt_txt.Length - 6) + "h");
+
+            }
+            
         }
     }
 }

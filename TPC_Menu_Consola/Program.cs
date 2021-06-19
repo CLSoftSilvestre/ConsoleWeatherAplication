@@ -18,7 +18,7 @@ namespace TPC_Menu_Consola
             while(opcao != 0)
             {
                 cs.printMenu();
-                Console.SetCursorPosition(63, 16);
+                Console.SetCursorPosition(63, 17);
                 Console.CursorVisible = true;
                 try
                 {
@@ -32,19 +32,35 @@ namespace TPC_Menu_Consola
                             ShowCityWeather(urlPdl, cs);
                             break;
                         case 2:
+                            string urlPdl2 = "http://api.openweathermap.org/data/2.5/forecast?id=3372783&appid=439f2c0ec9007cfd5e0a299dc5e243b0&units=metric&lang=pt";
+                            ShowCityWeatherPrediction(urlPdl2, cs);
+                            break;
+                        case 3:
                             // Lisboa
                             string urlLis = "http://api.openweathermap.org/data/2.5/weather?id=2267057&appid=439f2c0ec9007cfd5e0a299dc5e243b0&units=metric&lang=pt";
                             ShowCityWeather(urlLis, cs);
                             break;
-                        case 3:
+                        case 4:
+                            string urlLis2 = "http://api.openweathermap.org/data/2.5/forecast?id=2267057&appid=439f2c0ec9007cfd5e0a299dc5e243b0&units=metric&lang=pt";
+                            ShowCityWeatherPrediction(urlLis2, cs);
+                            break;
+                        case 5:
                             // Porto
                             string urlOpo = "http://api.openweathermap.org/data/2.5/weather?id=2735943&appid=439f2c0ec9007cfd5e0a299dc5e243b0&units=metric&lang=pt";
                             ShowCityWeather(urlOpo, cs);
                             break;
-                        case 4:
+                        case 6:
+                            string urlOpo2 = "http://api.openweathermap.org/data/2.5/forecast?id=2735943&appid=439f2c0ec9007cfd5e0a299dc5e243b0&units=metric&lang=pt";
+                            ShowCityWeatherPrediction(urlOpo2, cs);
+                            break;
+                        case 7:
                             // Faro
-                            string urlAlg = "http://api.openweathermap.org/data/2.5/weather?id=2268339&appid=439f2c0ec9007cfd5e0a299dc5e243b0&units=metric&lang=pt";
-                            ShowCityWeather(urlAlg, cs);
+                            string urlFar = "http://api.openweathermap.org/data/2.5/weather?id=2268339&appid=439f2c0ec9007cfd5e0a299dc5e243b0&units=metric&lang=pt";
+                            ShowCityWeather(urlFar, cs);
+                            break;
+                        case 8:
+                            string urlFar2 = "http://api.openweathermap.org/data/2.5/forecast?id=2268339&appid=439f2c0ec9007cfd5e0a299dc5e243b0&units=metric&lang=pt";
+                            ShowCityWeatherPrediction(urlFar2, cs);
                             break;
                         case 0:
                             break;
@@ -73,6 +89,15 @@ namespace TPC_Menu_Consola
             cs.drawWeatherInfo(weather);
             Console.ReadKey();
 
+        }
+
+        public static void ShowCityWeatherPrediction(string url, ConsoleScreen cs)
+        {
+            string jsonString;
+            jsonString = CallRestMethod(url);
+            WeatherPrediction weatherprediction = JsonSerializer.Deserialize<WeatherPrediction>(jsonString);
+            cs.drawWeatherForecast(weatherprediction); //Falta adicionar desenho para previsão...
+            Console.ReadKey();
         }
 
         public static string CallRestMethod(string url)

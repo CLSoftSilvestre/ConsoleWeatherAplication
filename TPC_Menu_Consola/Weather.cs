@@ -27,13 +27,17 @@ namespace TPC_Menu_Consola
         public double temp_min { get; set; }
         public double temp_max { get; set; }
         public int pressure { get; set; }
+        public int sea_level { get; set; }
+        public int grnd_lvel { get; set; }
         public int humidity { get; set; }
+        public float temp_kf { get; set; }
     }
 
     class Wind
     {
         public float speed { get; set; }
         public int deg { get; set; }
+        public float gust { get; set; }
     }
 
     class Clouds
@@ -48,13 +52,14 @@ namespace TPC_Menu_Consola
         public string country { get; set; }
         public double sunrise { get; set; }
         public double sunset { get; set; }
+        public string pod { set; get; }
     }
 
     class Weather
     {
         public Coordinates coord { get; set; }
         public WeatherDef[] weather { get; set; }
-        public string base1 {get; set;}
+        //public string base1 { get; set; }
         public Main main { get; set; }
         public int visibility { get; set; }
         public Wind wind { get; set; }
@@ -66,5 +71,38 @@ namespace TPC_Menu_Consola
         public string name { get; set; }
         public int cod { get; set; }
 
+    }
+
+    class Prediction
+    {
+        public double dt { set; get; }
+        public Main main { set; get; }
+        public WeatherDef[] weather { set; get; }
+        public Clouds clouds { get; set; }
+        public Wind wind { get; set; }
+        public int visibility { get; set; }
+        public float pop { get; set; }
+        public Sys sys { get; set; }
+        public string dt_txt { get; set; }
+    }
+
+    class City
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public Coordinates coord { get; set; }
+        public string country { get; set; }
+        public double population { get; set; }
+        public int timezone { get; set; }
+        public double sunrise { get; set; }
+        public double sunset { get; set; }
+    }
+
+    class WeatherPrediction{
+        public string cod { get; set; }
+        public int message { get; set; }
+        public int cnt { get; set; }
+        public Prediction[] list { get; set; }
+        public City city { get; set; }
     }
 }
