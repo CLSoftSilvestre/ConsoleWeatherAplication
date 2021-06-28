@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.31402.337
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPC_Menu_Consola", "TPC_Menu_Consola\TPC_Menu_Consola.csproj", "{9EDB0D57-5745-403E-A6C2-50019CA54087}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PrintScreens", "PrintScreens", "{206D18F3-4E97-438B-A487-256AC475C890}"
+	ProjectSection(SolutionItems) = preProject
+		Ponta_Delgada.jpg = Ponta_Delgada.jpg
+		Previsao_Lisboa.jpg = Previsao_Lisboa.jpg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
