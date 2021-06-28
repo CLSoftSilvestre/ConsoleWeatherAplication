@@ -9,7 +9,6 @@ namespace TPC_Menu_Consola
     // Esta classe contem todas as funções necessárias para desenhar componentes no ecra.
     class ConsoleScreen
     {
-        Drawings drw = new Drawings();
 
         public void clearScreen(ConsoleColor bgColor)
         {
@@ -126,39 +125,39 @@ namespace TPC_Menu_Consola
             {
                 case "01n":
                 case "01d":
-                    drw.drawSun(x, y);
+                    Drawings.drawSun(x, y);
                     break;
                 case "02n":
                 case "02d":
-                    drw.drawSunClouds(x, y);
+                    Drawings.drawSunClouds(x, y);
                     break;
                 case "03n":
                 case "03d":
-                    drw.drawClouds(x, y);
+                    Drawings.drawClouds(x, y);
                     break;
                 case "04n":
                 case "04d":
-                    drw.drawDarkClouds(x, y);
+                    Drawings.drawDarkClouds(x, y);
                     break;
                 case "09n":
                 case "09d":
-                    drw.drawCloudsRain(x, y);
+                    Drawings.drawCloudsRain(x, y);
                     break;
                 case "10n":
                 case "10d":
-                    drw.drawSunCloudsRain(x, y);
+                    Drawings.drawSunCloudsRain(x, y);
                     break;
                 case "11n":
                 case "11d":
-                    drw.drawLightning(x, y);
+                    Drawings.drawLightning(x, y);
                     break;
                 case "13n":
                 case "13d":
-                    drw.drawSnow(x, y);
+                    Drawings.drawSnow(x, y);
                     break;
                 case "50n":
                 case "50d":
-                    drw.drawFog(x, y);
+                    Drawings.drawFog(x, y);
                     break;
                 default:
                     Console.WriteLine("");
